@@ -13,16 +13,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BookTitle)
+            Book Title
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Notes)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BookPrice)
+            Book Price
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BookType)
+            Book Type
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
@@ -31,10 +31,10 @@
             @Html.DisplayNameFor(model => model.Url)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Author.AuthorName)
+            Author Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Publisher.PublisherName)
+            Publisher Name
         </th>
         <th></th>
     </tr>
@@ -66,8 +66,8 @@
             @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookID }) 
+            @Html.ActionLink("Details", "Details", new { id=item.BookID }) 
             @Html.ActionLink("Delete", "Delete", new { id=item.BookID })
         </td>
     </tr>

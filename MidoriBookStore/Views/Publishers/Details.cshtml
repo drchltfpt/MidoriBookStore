@@ -1,0 +1,43 @@
+﻿@model MidoriBookStore.Models.Publisher
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Publisher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Publisher ID:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherID)
+        </dd>
+
+        <dt>
+            Publisher Name:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherName)
+        </dd>
+
+        <dt>
+            Publisher Address:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PublisherID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MidoriBookStore.Models.Author>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Author Name
+        </th>
+        <th>
+            Author Address
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AuthorID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AuthorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AuthorID })
+        </td>
+    </tr>
+}
+
+</table>

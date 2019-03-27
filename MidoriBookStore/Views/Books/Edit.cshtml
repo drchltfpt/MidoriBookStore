@@ -19,7 +19,8 @@
         @Html.HiddenFor(model => model.BookID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PublisherID, "PublisherID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.PublisherID, "PublisherID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="control-label col-md-2">Publisher Name</div>
             <div class="col-md-10">
                 @Html.DropDownList("PublisherID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PublisherID, "", new { @class = "text-danger" })

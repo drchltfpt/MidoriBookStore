@@ -26,5 +26,12 @@ namespace MidoriBookStore.Controllers
 
             return View();
         }
+
+        public ActionResult Feedback()
+        {
+            ViewBag.Message = "Your feedback page.";
+
+            return View();
+        }
     }
 }

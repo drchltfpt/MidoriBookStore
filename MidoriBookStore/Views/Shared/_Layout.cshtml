@@ -3,37 +3,113 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Midori Book Store</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <link href="@Url.Content("~/Content/css_admin/header_admin.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/js_admin/js_header.js")"
+            type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/footer.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css_admin/button_admin.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css_admin/share_admin.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css_admin/searchbar_admin.css")" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="hdfull">
+        <header class="main_h">
+
+            <div class="row">
+                <a class="logo" href="#">MIDORI</a>
+
+                <div class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li>
+                            <svg style="display: none">
+                                <symbol id="magnify" viewBox="0 0 18 18" height="100%" width="100%">
+                                    <path d="M12.5 11h-.8l-.3-.3c1-1.1 1.6-2.6 1.6-4.2C13 2.9 10.1 0          6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5          1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5            11z" fill="#fff" fill-rule="evenodd" />
+                                </symbol>
+                            </svg>
+
+                            <div class="search-bar">
+
+                                <input type="text" class="input" placeholder="&nbsp;">
+                                <span class="label">Book name</span>
+                                <span class="highlight"></span>
+                                <div class="search-btn">
+                                    <svg class="icon icon-18">
+                                        <use xlink:href="#magnify"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li>@Html.ActionLink("Home", "Index", "#")</li>
+                        <li>@Html.ActionLink("About", "Index", "#")</li>
+                        <li>@Html.ActionLink("Feedback", "Index", "#")</li>
+
+                        <li><button class="btn draw-border">LOG IN</button></li>
+                        <li><button class="btn draw-border">SIGN UP</button></li>
+                    </ul>
+                </nav>
+
+            </div> <!-- / row -->
+
+        </header>
+
+        <div class="hero">
+
+            <h1><span>Welcome Administrator</span><br>Midori Book Store</h1>
+
+            <div class="mouse">
+                <span></span>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
     </div>
+    <footer>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 footer-navigation">
+                <h3><a href="#">Mido<span>ri </span></a></h3>
+                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="company-name">Midori © 2018 </p>
+            </div>
+            <div class="col-sm-6 col-md-4 footer-contacts">
+                <div>
+                    <span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p><span class="new-line-span">SE1209</span> FPT University</p>
+                </div>
+                <div>
+                    <i class="fa fa-phone footer-contacts-icon"></i>
+                    <p class="footer-center-info email text-left"> +84 123456</p>
+                </div>
+                <div>
+                    <i class="fa fa-envelope footer-contacts-icon"></i>
+                    <p> <a href="#" target="_blank">support@fpt.edu.vn</a></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4 footer-about">
+                <h4>About the website</h4>
+                <p> We create the website to get the good grade from our teacher- DAO TRONG DUY. </p>
+                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+            </div>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

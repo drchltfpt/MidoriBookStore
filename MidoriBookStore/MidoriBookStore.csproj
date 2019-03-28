@@ -190,6 +190,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css_admin\button_admin.css" />
     <Content Include="Content\css_admin\header_admin.css" />
+    <Content Include="Content\css_admin\searchbar_admin.css" />
     <Content Include="Content\css_admin\share_admin.css" />
     <Content Include="Content\footer.css" />
     <Content Include="favicon.ico" />

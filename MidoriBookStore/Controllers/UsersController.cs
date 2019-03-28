@@ -12,7 +12,7 @@ namespace MidoriBookStore.Controllers
 {
     public class UsersController : Controller
     {
-        private BookStoreDBEntities db = new BookStoreDBEntities();
+        private BookStoreDBEntities1 db = new BookStoreDBEntities1();
 
         // GET: Users
         public ActionResult Index()

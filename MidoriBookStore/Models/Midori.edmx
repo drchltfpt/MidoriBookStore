@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="AuthorID" />
           </Key>
-          <Property Name="AuthorID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="AuthorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AuthorName" Type="varchar" MaxLength="61" Nullable="false" />
           <Property Name="AuthorAddress" Type="varchar" MaxLength="62" />
         </EntityType>
@@ -17,9 +17,9 @@
           <Key>
             <PropertyRef Name="BookID" />
           </Key>
-          <Property Name="BookID" Type="varchar" MaxLength="6" Nullable="false" />
-          <Property Name="PublisherID" Type="char" MaxLength="4" />
-          <Property Name="AuthorID" Type="varchar" MaxLength="15" />
+          <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PublisherID" Type="int" />
+          <Property Name="AuthorID" Type="int" />
           <Property Name="BookTitle" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="Notes" Type="nvarchar(max)" />
           <Property Name="BookPrice" Type="money" Nullable="false" />
@@ -42,7 +42,7 @@
             <PropertyRef Name="BookID" />
           </Key>
           <Property Name="OrderID" Type="int" Nullable="false" />
-          <Property Name="BookID" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="BookID" Type="int" Nullable="false" />
           <Property Name="BookPrice" Type="money" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
@@ -50,7 +50,7 @@
           <Key>
             <PropertyRef Name="PublisherID" />
           </Key>
-          <Property Name="PublisherID" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="PublisherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PublisherName" Type="varchar" MaxLength="40" />
           <Property Name="PublisherAddress" Type="varchar" MaxLength="54" />
         </EntityType>
@@ -204,7 +204,7 @@
           <Key>
             <PropertyRef Name="AuthorID" />
           </Key>
-          <Property Name="AuthorID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AuthorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AuthorName" Type="String" MaxLength="61" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AuthorAddress" Type="String" MaxLength="62" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Books" Relationship="Self.FK_Book_Author" FromRole="Author" ToRole="Book" />
@@ -213,9 +213,9 @@
           <Key>
             <PropertyRef Name="BookID" />
           </Key>
-          <Property Name="BookID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PublisherID" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="AuthorID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PublisherID" Type="Int32" />
+          <Property Name="AuthorID" Type="Int32" />
           <Property Name="BookTitle" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
@@ -243,7 +243,7 @@
             <PropertyRef Name="BookID" />
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" />
-          <Property Name="BookID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BookID" Type="Int32" Nullable="false" />
           <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_OrderLine_Book" FromRole="OrderLine" ToRole="Book" />
@@ -253,7 +253,7 @@
           <Key>
             <PropertyRef Name="PublisherID" />
           </Key>
-          <Property Name="PublisherID" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PublisherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PublisherName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="PublisherAddress" Type="String" MaxLength="54" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Books" Relationship="Self.FK_Book_Publisher" FromRole="Publisher" ToRole="Book" />
@@ -368,7 +368,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BookStoreDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BookStoreDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Authors" EntityType="Self.Author" />
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
@@ -407,7 +407,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BookStoreDBModelStoreContainer" CdmEntityContainer="BookStoreDBEntities">
+        <EntityContainerMapping StorageEntityContainer="BookStoreDBModelStoreContainer" CdmEntityContainer="BookStoreDBEntities1">
           <EntitySetMapping Name="Authors">
             <EntityTypeMapping TypeName="BookStoreDBModel.Author">
               <MappingFragment StoreEntitySet="Author">

@@ -20,7 +20,7 @@ namespace MidoriBookStore.Models
             this.Books = new HashSet<Book>();
         }
     
-        public string PublisherID { get; set; }
+        public int PublisherID { get; set; }
         public string PublisherName { get; set; }
         public string PublisherAddress { get; set; }
     

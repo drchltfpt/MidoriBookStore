@@ -13,10 +13,10 @@ namespace MidoriBookStore.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookStoreDBEntities : DbContext
+    public partial class BookStoreDBEntities1 : DbContext
     {
-        public BookStoreDBEntities()
-            : base("name=BookStoreDBEntities")
+        public BookStoreDBEntities1()
+            : base("name=BookStoreDBEntities1")
         {
         }
     

@@ -12,7 +12,7 @@ namespace MidoriBookStore.Controllers
 {
     public class BooksController : Controller
     {
-        private BookStoreDBEntities db = new BookStoreDBEntities();
+        private BookStoreDBEntities1 db = new BookStoreDBEntities1();
 
         // GET: Books
         public ActionResult Index()
@@ -22,7 +22,7 @@ namespace MidoriBookStore.Controllers
         }
 
         // GET: Books/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -64,7 +64,7 @@ namespace MidoriBookStore.Controllers
         }
 
         // GET: Books/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -99,7 +99,7 @@ namespace MidoriBookStore.Controllers
         }
 
         // GET: Books/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -116,7 +116,7 @@ namespace MidoriBookStore.Controllers
         // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Book book = db.Books.Find(id);
             db.Books.Remove(book);

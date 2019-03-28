@@ -32,6 +32,8 @@ namespace MidoriBookStore.Controllers
         // GET: AddToCart/Create
         public ActionResult Create()
         {
+
+
             return View();
         }
 
@@ -42,28 +44,6 @@ namespace MidoriBookStore.Controllers
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: AddToCart/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: AddToCart/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
                 return RedirectToAction("Index");
             }
@@ -85,7 +65,17 @@ namespace MidoriBookStore.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                if (Session["CartItem"] != null)
+                {
+                    List<CartItem> items = new List<CartItem>();
+                    ShoppingCart cart = new ShoppingCart(items);
+                    cart = new ShoppingCart((List<CartItem>)Session["CartItem"]);
+
+                    CartItem ci = cart.GetCartItemByProductID(id);
+                    cart.RemoveCartItem(ci);
+
+                    Session["CartItem"] = cart.items;
+                }
 
                 return RedirectToAction("Index");
             }

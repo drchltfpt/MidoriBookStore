@@ -7,37 +7,37 @@ namespace MidoriBookStore.Models.AddToCart
 {
     public class CartItem
     {
-        public int ProductId { get; set; }
+        public int BookId { get; set; }
 
-        public string ProductName { get; set; }
+        public string BookTitle { get; set; }
 
         public int Quantity { get; set; }
 
-        public double Price { get; set; }
+        public double BookPrice { get; set; }
 
         public double Total
         {
             get
             {
-                return Price * Quantity;
+                return BookPrice * Quantity;
             }
             set{}
         }
 
         public System.DateTime DateCreated { get; set; }
 
-        public CartItem(int productID, string productName, double price)
+        public CartItem(int bookId, string bookTitle, double price)
         {
-            ProductId = productID;
-            ProductName = productName;
+            BookId = bookId;
+            BookTitle = bookTitle;
             Quantity = 1;
-            Price = price;
+            BookPrice = price;
         }
 
         public override bool Equals(object obj)
         {
             CartItem ci = (CartItem)obj;
-            return ProductId.Equals(ci.ProductId);
+            return BookId.Equals(ci.BookId);
         }
 
     }

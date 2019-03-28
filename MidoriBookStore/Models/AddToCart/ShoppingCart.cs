@@ -15,7 +15,7 @@ namespace MidoriBookStore.Models.AddToCart
             CartItem c = null;
             foreach (CartItem item in items)
             {
-                if(item.ProductId == id)
+                if(item.BookId == id)
                 {
                     c = item;
                     return c;
@@ -96,7 +96,7 @@ namespace MidoriBookStore.Models.AddToCart
             double total = 0;
             foreach (CartItem ci in items)
             {
-                total += ci.Price * ci.Quantity;
+                total += ci.BookPrice * ci.Quantity;
             }
             return total;
         }

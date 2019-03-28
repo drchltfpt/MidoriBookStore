@@ -36,19 +36,29 @@
     {
         <tr>
             <td>
-                @item.ProductId
+                @item.BookId
             </td>
             <td>
-                @item.ProductName
+                @item.BookTitle
             </td>
             <td>
-                @item.Price
+                @item.BookPrice
             </td>
             <td>
                 @item.Quantity
             </td>
             <td>
                 @item.Total
+            </td>
+
+            <td>
+                @Html.ActionLink(
+    "Delete",
+    "Delete",
+    new { confirm = true, id = item.BookId },
+    new { onclick = "return confirm('Do you really want to delete this product from cart?')" })
+
+
             </td>
 
         </tr>

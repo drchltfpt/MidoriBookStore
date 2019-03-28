@@ -1,0 +1,58 @@
+﻿@using MidoriBookStore.Models.AddToCart
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@{
+    var data = (List<CartItem>)ViewData["cart"];
+}
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Total
+        </th>
+
+    </tr>
+
+    @foreach (var item in data)
+    {
+        <tr>
+            <td>
+                @item.ProductId
+            </td>
+            <td>
+                @item.ProductName
+            </td>
+            <td>
+                @item.Price
+            </td>
+            <td>
+                @item.Quantity
+            </td>
+            <td>
+                @item.Total
+            </td>
+
+        </tr>
+    }
+
+</table>
+

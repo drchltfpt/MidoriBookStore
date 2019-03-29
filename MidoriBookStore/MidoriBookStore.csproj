@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddToCartController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -142,6 +143,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddToCart\CartItem.cs" />
+    <Compile Include="Models\AddToCart\ShoppingCart.cs" />
     <Compile Include="Models\Author.cs">
       <DependentUpon>Midori.tt</DependentUpon>
     </Compile>
@@ -188,6 +191,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cart\cart.css" />
+    <Content Include="Content\cart\check_out.css" />
     <Content Include="Content\css_admin\button_admin.css" />
     <Content Include="Content\css_admin\header_admin.css" />
     <Content Include="Content\main.css" />
@@ -270,6 +275,8 @@
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\AddToCart\Index.cshtml" />
+    <Content Include="Views\AddToCart\CheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

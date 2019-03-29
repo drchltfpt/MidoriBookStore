@@ -1,0 +1,91 @@
+﻿@using MidoriBookStore.Models.AddToCart
+<link href="@Url.Content("~/Content/cart/cart.css")" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@{
+    var shop = new ShoppingCart((List<CartItem>)ViewData["cart"]);
+    var cart = (List<CartItem>)ViewData["cart"];
+}
+
+
+<h1>Shopping Cart</h1>
+
+<div class="shopping-cart">
+
+    <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product</label>
+        <label class="product-price">Price</label>
+        <label class="product-quantity">Quantity</label>
+        <label class="product-removal">Remove</label>
+        <label class="product-line-price">Total</label>
+    </div>
+
+    @foreach (var item in cart)
+    {
+
+        <div class="product">
+            <div class="product-image">
+                <img src="">
+            </div>
+            <div class="product-details">
+                <div class="product-title">@item.GetBookById().BookTitle</div>
+                <p class="product-description">@item.GetBookById().Notes</p>
+            </div>
+            <div class="product-price">@item.GetBookById().BookPrice</div>
+            <div class="product-quantity">
+                <input type="number" value="2" min="1">
+            </div>
+            <div class="product-removal">
+                <button class="remove-product">
+                    @Html.ActionLink(
+                                "Delete",
+                                "Delete",
+                                new { confirm = true, id = item.BookId },
+                                new { onclick = "return confirm('Do you really want to delete this product from cart?')"}
+                                )
+                    Remove
+                </button>
+            </div>
+            <div class="product-line-price">@item.Total</div>
+        </div>
+    }
+
+    <div class="totals">
+        <div class="totals-item">
+            <label>Subtotal</label>
+            <div class="totals-value" id="cart-subtotal">@shop.GetTotalPrice()</div>
+        </div>
+        <div class="totals-item">
+            <label>Shipping</label>
+            <div class="totals-value" id="cart-shipping">FREE</div>
+        </div>
+        <div class="totals-item totals-item-total">
+            <label>Grand Total</label>
+            <div class="totals-value" id="cart-total">@shop.GetTotalPrice()</div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <input type="submit" value="CheckOut" class="checkout" /> |
+@Html.ActionLink("Back to List", "Index");
+
+}
+
+    <button class="checkout">Checkout</button>
+
+</div>
+
+
+
+
+

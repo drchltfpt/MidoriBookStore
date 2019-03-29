@@ -191,6 +191,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cart\cart.css" />
+    <Content Include="Content\cart\check_out.css" />
     <Content Include="Content\css_admin\button_admin.css" />
     <Content Include="Content\css_admin\header_admin.css" />
     <Content Include="Content\css_admin\searchbar_admin.css" />
@@ -267,6 +269,7 @@
     <Content Include="Views\Publishers\Edit.cshtml" />
     <Content Include="Views\Publishers\Index.cshtml" />
     <Content Include="Views\AddToCart\Index.cshtml" />
+    <Content Include="Views\AddToCart\CheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

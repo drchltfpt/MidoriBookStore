@@ -12,11 +12,7 @@ namespace MidoriBookStore.Models.AddToCart
 
         public int BookId { get; set; }
 
-        public string BookTitle { get; set; }
-
         public int Quantity { get; set; }
-
-        public double BookPrice { get; set; }
 
         public Book GetBookById()
         {
@@ -27,19 +23,17 @@ namespace MidoriBookStore.Models.AddToCart
         {
             get
             {
-                return BookPrice * Quantity;
+                return Convert.ToDouble(GetBookById().BookPrice * Quantity);
             }
             set{}
         }
 
         public System.DateTime DateCreated { get; set; }
 
-        public CartItem(int bookId, string bookTitle, double price)
+        public CartItem(int bookId)
         {
             BookId = bookId;
-            BookTitle = bookTitle;
             Quantity = 1;
-            BookPrice = price;
         }
 
         public override bool Equals(object obj)

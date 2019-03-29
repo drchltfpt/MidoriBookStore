@@ -96,7 +96,7 @@ namespace MidoriBookStore.Models.AddToCart
             double total = 0;
             foreach (CartItem ci in items)
             {
-                total += ci.BookPrice * ci.Quantity;
+                total += Convert.ToDouble(ci.GetBookById().BookPrice * ci.Quantity);
             }
             return total;
         }

@@ -23,6 +23,13 @@ namespace MidoriBookStore.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult CheckOut()
+        {
+
+            return View();
+        }
+
 
         // GET: AddToCart/Create
         public ActionResult Create()

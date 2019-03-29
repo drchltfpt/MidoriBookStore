@@ -10,116 +10,107 @@ using MidoriBookStore.Models;
 
 namespace MidoriBookStore.Controllers
 {
-    public class HomeController : Controller
+    public class AuthorsController : Controller
     {
         private BookStoreDBEntities1 db = new BookStoreDBEntities1();
 
-        // GET: Home
+        // GET: Authors
         public ActionResult Index()
         {
-            var books = db.Books.Include(b => b.Author).Include(b => b.Publisher);
-            return View(books.ToList());
+            return View(db.Authors.ToList());
         }
 
-        // GET: Home/Details/5
+        // GET: Authors/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Author author = db.Authors.Find(id);
+            if (author == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(author);
         }
 
-        // GET: Home/Create
+        // GET: Authors/Create
         public ActionResult Create()
         {
-            ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName");
-            ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "PublisherName");
             return View();
         }
 
-        // POST: Home/Create
+        // POST: Authors/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookID,PublisherID,AuthorID,BookTitle,Notes,BookPrice,BookType,Status,Url")] Book book)
+        public ActionResult Create([Bind(Include = "AuthorID,AuthorName,AuthorAddress")] Author author)
         {
             if (ModelState.IsValid)
             {
-                db.Books.Add(book);
+                db.Authors.Add(author);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName", book.AuthorID);
-            ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "PublisherName", book.PublisherID);
-            return View(book);
+            return View(author);
         }
 
-        // GET: Home/Edit/5
+        // GET: Authors/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Author author = db.Authors.Find(id);
+            if (author == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName", book.AuthorID);
-            ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "PublisherName", book.PublisherID);
-            return View(book);
+            return View(author);
         }
 
-        // POST: Home/Edit/5
+        // POST: Authors/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookID,PublisherID,AuthorID,BookTitle,Notes,BookPrice,BookType,Status,Url")] Book book)
+        public ActionResult Edit([Bind(Include = "AuthorID,AuthorName,AuthorAddress")] Author author)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(book).State = EntityState.Modified;
+                db.Entry(author).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName", book.AuthorID);
-            ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "PublisherName", book.PublisherID);
-            return View(book);
+            return View(author);
         }
 
-        // GET: Home/Delete/5
+        // GET: Authors/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Author author = db.Authors.Find(id);
+            if (author == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(author);
         }
 
-        // POST: Home/Delete/5
+        // POST: Authors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Book book = db.Books.Find(id);
-            db.Books.Remove(book);
+            Author author = db.Authors.Find(id);
+            db.Authors.Remove(author);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -131,19 +122,6 @@ namespace MidoriBookStore.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public ActionResult Search(string searchString)
-        {
-            var books = from m in db.Books
-                         select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                books = books.Where(s => s.BookTitle.Contains(searchString));
-            }
-
-            return View(books);
         }
     }
 }

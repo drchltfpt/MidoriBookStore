@@ -10,18 +10,18 @@ using MidoriBookStore.Models;
 
 namespace MidoriBookStore.Controllers
 {
-    public class HomeController : Controller
+    public class BooksController : Controller
     {
         private BookStoreDBEntities1 db = new BookStoreDBEntities1();
 
-        // GET: Home
+        // GET: Books
         public ActionResult Index()
         {
             var books = db.Books.Include(b => b.Author).Include(b => b.Publisher);
             return View(books.ToList());
         }
 
-        // GET: Home/Details/5
+        // GET: Books/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +36,7 @@ namespace MidoriBookStore.Controllers
             return View(book);
         }
 
-        // GET: Home/Create
+        // GET: Books/Create
         public ActionResult Create()
         {
             ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName");
@@ -44,7 +44,7 @@ namespace MidoriBookStore.Controllers
             return View();
         }
 
-        // POST: Home/Create
+        // POST: Books/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -63,7 +63,7 @@ namespace MidoriBookStore.Controllers
             return View(book);
         }
 
-        // GET: Home/Edit/5
+        // GET: Books/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace MidoriBookStore.Controllers
             return View(book);
         }
 
-        // POST: Home/Edit/5
+        // POST: Books/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -98,7 +98,7 @@ namespace MidoriBookStore.Controllers
             return View(book);
         }
 
-        // GET: Home/Delete/5
+        // GET: Books/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +113,7 @@ namespace MidoriBookStore.Controllers
             return View(book);
         }
 
-        // POST: Home/Delete/5
+        // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -133,17 +133,5 @@ namespace MidoriBookStore.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Search(string searchString)
-        {
-            var books = from m in db.Books
-                         select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                books = books.Where(s => s.BookTitle.Contains(searchString));
-            }
-
-            return View(books);
-        }
     }
 }

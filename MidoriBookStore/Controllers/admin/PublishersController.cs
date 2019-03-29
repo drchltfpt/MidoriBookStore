@@ -10,116 +10,107 @@ using MidoriBookStore.Models;
 
 namespace MidoriBookStore.Controllers
 {
-    public class HomeController : Controller
+    public class PublishersController : Controller
     {
         private BookStoreDBEntities1 db = new BookStoreDBEntities1();
 
-        // GET: Home
+        // GET: Publishers
         public ActionResult Index()
         {
-            var books = db.Books.Include(b => b.Author).Include(b => b.Publisher);
-            return View(books.ToList());
+            return View(db.Publishers.ToList());
         }
 
-        // GET: Home/Details/5
+        // GET: Publishers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Publisher publisher = db.Publishers.Find(id);
+            if (publisher == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(publisher);
         }
 
-        // GET: Home/Create
+        // GET: Publishers/Create
         public ActionResult Create()
         {
-            ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName");
-            ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "PublisherName");
             return View();
         }
 
-        // POST: Home/Create
+        // POST: Publishers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookID,PublisherID,AuthorID,BookTitle,Notes,BookPrice,BookType,Status,Url")] Book book)
+        public ActionResult Create([Bind(Include = "PublisherID,PublisherName,PublisherAddress")] Publisher publisher)
         {
             if (ModelState.IsValid)
             {
-                db.Books.Add(book);
+                db.Publishers.Add(publisher);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName", book.AuthorID);
-            ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "PublisherName", book.PublisherID);
-            return View(book);
+            return View(publisher);
         }
 
-        // GET: Home/Edit/5
+        // GET: Publishers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Publisher publisher = db.Publishers.Find(id);
+            if (publisher == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName", book.AuthorID);
-            ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "PublisherName", book.PublisherID);
-            return View(book);
+            return View(publisher);
         }
 
-        // POST: Home/Edit/5
+        // POST: Publishers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookID,PublisherID,AuthorID,BookTitle,Notes,BookPrice,BookType,Status,Url")] Book book)
+        public ActionResult Edit([Bind(Include = "PublisherID,PublisherName,PublisherAddress")] Publisher publisher)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(book).State = EntityState.Modified;
+                db.Entry(publisher).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "AuthorName", book.AuthorID);
-            ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "PublisherName", book.PublisherID);
-            return View(book);
+            return View(publisher);
         }
 
-        // GET: Home/Delete/5
+        // GET: Publishers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Publisher publisher = db.Publishers.Find(id);
+            if (publisher == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(publisher);
         }
 
-        // POST: Home/Delete/5
+        // POST: Publishers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Book book = db.Books.Find(id);
-            db.Books.Remove(book);
+            Publisher publisher = db.Publishers.Find(id);
+            db.Publishers.Remove(publisher);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -131,19 +122,6 @@ namespace MidoriBookStore.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        public ActionResult Search(string searchString)
-        {
-            var books = from m in db.Books
-                         select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                books = books.Where(s => s.BookTitle.Contains(searchString));
-            }
-
-            return View(books);
         }
     }
 }

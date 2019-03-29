@@ -24,6 +24,9 @@
 
     <link href="@Url.Content("~/Content/main.css")" rel="stylesheet" type="text/css" />
 
+    <link href="@Url.Content("~/Content/search_more.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/search_drop.js")"
+            type="text/javascript"></script>
 </head>
 <body>
     <div class="hdfull">
@@ -47,19 +50,23 @@
                                 </symbol>
                             </svg>
 
-                            <div class="search-bar">
+                            <form action="/Home/Search" method="post">
+                                <div class="search-bar">
 
-                                <input type="text" class="input" placeholder="&nbsp;">
-                                <span class="label">Book name</span>
-                                <span class="highlight"></span>
-                                <div class="search-btn">
-                                    <svg class="icon icon-18">
-                                        <use xlink:href="#magnify"></use>
-                                    </svg>
+                                    <input type="text" class="input" name="SearchString" placeholder="&nbsp;">
+                                    <span class="label">Book name</span>
+                                    <span class="highlight"></span>
+                                    
+                                    <div class="search-btn">
+                                        <svg class="icon icon-18">
+                                            <use xlink:href="#magnify"></use>
+                                        </svg>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
+
                         </li>
-                        
+
 
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>

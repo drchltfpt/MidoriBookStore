@@ -195,6 +195,7 @@
     <Content Include="Content\css_admin\share_admin.css" />
     <Content Include="Content\css_admin\slidebar_admin.css" />
     <Content Include="Content\footer-distributed-with-address-and-phones.css" />
+    <Content Include="Content\search_more.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -230,6 +231,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js_admin\js_header.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\search_drop.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

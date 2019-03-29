@@ -5,72 +5,88 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Search</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BookTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Notes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author.AuthorName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Publisher.PublisherName)
-        </th>
-        <th></th>
-    </tr>
+<div class="search_more">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Notes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Url)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author.AuthorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookID })
-        </td>
-    </tr>
-}
 
-</table>
+    <svg style="display: none">
+        <symbol id="magnify" viewBox="0 0 18 18" height="100%" width="100%">
+            <path d="M12.5 11h-.8l-.3-.3c1-1.1 1.6-2.6 1.6-4.2C13 2.9 10.1 0          6.5 0S0 2.9 0 6.5 2.9 13 6.5 13c1.6 0 3.1-.6 4.2-1.6l.3.3v.8l5 5          1.5-1.5-5-5zm-6 0C4 11 2 9 2 6.5S4 2 6.5 2 11 4 11 6.5 9 11 6.5            11z" fill="#fff" fill-rule="evenodd" />
+        </symbol>
+    </svg>
+    <form action="/Home/Search" method="post">
+        <div class="search-bar">
+
+            <input type="text" class="input" name="SearchString" placeholder="&nbsp;">
+            <span class="label">Book name</span>
+            <span class="highlight"></span>
+
+            <div class="search-btn">
+                <svg class="icon icon-18">
+                    <use xlink:href="#magnify"></use>
+                </svg>
+            </div>
+        </div>
+    </form>
+
+    <div class="container">
+        <div class="selected-item">
+            <p>Search By : <span>Book</span></p>
+        </div>
+
+        <div class="dropdown">
+            <span class="selLabel">Select</span>
+            <input type="hidden" name="cd-dropdown">
+            <ul class="dropdown-list">
+                <li data-value="1">
+                    <span>Author</span>
+                </li>
+                <li data-value="2">
+                    <span>Publisher</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="product">
+    <div class="wrapper">
+
+        <div class="content">
+            <!-- content here -->
+
+            <div class="product-grid product-grid--flexbox">
+
+                <div class="product-grid__wrapper">
+                    <!-- Product list start here -->
+                    <!-- Single product -->
+                    @foreach (var item in Model)
+                    {
+                        <div class="product-grid__product-wrapper">
+                            <div class="product-grid__product">
+                                <div class="product-grid__img-wrapper">
+                                    <img src="@item.Url" alt="Img" class="product-grid__img" />
+                                </div>
+                                <span class="product-grid__title">@Html.DisplayFor(modelItem => item.BookTitle)</span>
+                                <span class="product-grid__price">@Html.DisplayFor(modelItem => item.BookPrice)$</span>
+                                <div class="product-grid__extend-wrapper">
+                                    <div class="product-grid__extend">
+                                        <p class="product-grid__description">@Html.DisplayFor(modelItem => item.Notes)</p>
+                                        <span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i> Add to cart</span>
+                                        <span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i> @Html.ActionLink("View more", "Details", new { id = item.BookID })</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end Single product -->
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

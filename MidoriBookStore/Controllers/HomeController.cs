@@ -145,5 +145,11 @@ namespace MidoriBookStore.Controllers
 
             return View(books);
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
     }
 }

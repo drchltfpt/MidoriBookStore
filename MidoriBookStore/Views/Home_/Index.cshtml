@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MidoriBookStore.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+  .btn-primary{
+      background-color: black;
+
+  }
+
+  h2:hover{
+     text-decoration: underline;
+
+  }
+  img{
+      border-radius: 10px;
+      width: 400px;
+      height:430px;
+  }
+  .card{
+      border: 1px solid black;
+  }
+</style>
+
+    <div class="block-heading" style="text-align: center; margin-top: 100px">
+        <h1 class="text-info">Home</h1>
+        <h3></h3>
+        <br>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+        <div class="card" style="width: 28rem;">
+            <img class="card-img-top" src=@item.Url alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title">@Html.DisplayFor(modelItem => item.BookTitle)</h2>
+                <p class="text_short">@Html.DisplayFor(modelItem => item.Notes)</p>
+                <button type="button" class="btn btn-primary">@Html.ActionLink("View Details", "Details", new { id = item.BookID })</button>
+            </div>
+        </div>
+
+    </div>
+
+}
+      </div>
+    </div>
+<br />
+
+   
+
+    
+
+
+

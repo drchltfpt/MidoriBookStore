@@ -1,0 +1,85 @@
+﻿@model MidoriBookStore.Models.Book
+
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    img{
+        width: 380px;
+        height: 400px;
+    }
+    p{
+        font-size: large;
+    }
+</style>
+<div>
+    <div class="block-heading" style="text-align: center; margin-top: 100px">
+        <h1 class="text-info">About Us</h1>
+        <h3> The following are the people who create this website</h3>
+        <br>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-4">
+                        <div class="card" style="width: 28rem;">
+                            <img class="card-img-top" src="https://scontent.fhan5-2.fna.fbcdn.net/v/t1.0-9/396105_173023809499392_1282063061_n.jpg?_nc_cat=102&_nc_oc=AQlOSqULye2ZlYnMxy-_iqqSaDkuBsDegSmh-MGifu6xWXsmPQB7Id13I9mvFEAzIQEgs5CsOljNCrftLl5HNx8l&_nc_ht=scontent.fhan5-2.fna&oh=e48be7dcafd580cab18e2dafed49420f&oe=5D04E5C4" alt="Card image cap">
+                            <div class="card-body">
+                                <h2 class="card-title">Họ Và Tên : Đỗ Duy Luyện</h2>
+                                <p class="card-text">NHÓM TRƯỞNG</p>
+                                 
+                            </div>
+                        </div>
+
+                    </div>
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="https://scontent.fdad3-2.fna.fbcdn.net/v/t1.0-9/49574302_785515145137024_5226687646876565504_n.jpg?_nc_cat=105&_nc_oc=AQmFfE70EKtVe-h0LLUJtX2TIeUqclDYMbpxnN2C1BEOoRp93p17guDjbdTckuDd5BwXy6Y_HP2fItLv1Fr0kKZz&_nc_ht=scontent.fdad3-2.fna&oh=83bfded58870ad94a2c4c974147bada5&oe=5D40EA38" alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title">Họ Và Tên : Phạm QUang Minh</h2>
+                            
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="https://scontent.fhan5-7.fna.fbcdn.net/v/t1.0-9/50576377_2259361491012547_4773227422126440448_n.jpg?_nc_cat=100&_nc_oc=AQlq-KSTEFmf0t1iGyN8icZOOo2Wyy6kDAMYAB9dbmGJpW11OOmfp7wg3_g8VyMQpekUwxtXpwdM-8FGpDviQ6SP&_nc_ht=scontent.fhan5-7.fna&oh=60d6e6861cb8adfba111faadda5c0538&oe=5D4CCDDF" alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title">Họ Và Tên : Phạm Huy Hà</h2>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 28rem;">
+                        <img class="card-img-top" src="https://scontent.fhan5-2.fna.fbcdn.net/v/t1.0-9/14333560_507309079393813_4580384175147212697_n.jpg?_nc_cat=110&_nc_oc=AQlQ6xJjQdmQ0nsEO1vy6hY_FZZimY6_CzHw3_0QWestlwnBrfyyG--pvhQG4gYxg39aJHYlIrKfaGe95U3k1vbl&_nc_ht=scontent.fhan5-2.fna&oh=63564ee250dc6f28a46667a285603aea&oe=5D3EB9BB" alt="Card image cap">
+                        <div class="card-body">
+                            <h2 class="card-title">Họ Và Tên : Nguyễn Hoàng Dũng</h2>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+  <hr/>
+          <p>@Html.ActionLink("Back to List", "Index")</p>
+</div>

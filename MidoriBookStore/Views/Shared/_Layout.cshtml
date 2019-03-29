@@ -14,14 +14,24 @@
     <link href="@Url.Content("~/Content/footer.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css_admin/button_admin.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/css_admin/share_admin.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/css_admin/searchbar_admin.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/searchbar.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css_admin/slidebar_admin.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/footer-distributed-with-address-and-phones.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
 </head>
 <body>
     <div class="hdfull">
         <header class="main_h">
 
             <div class="row">
+<<<<<<< HEAD
                 <a class="logo" href="">MIDORI</a>
+=======
+                <a class="logo" href="/Home/Index">MIDORI</a>
+>>>>>>> origin
 
                 <div class="mobile-toggle">
                     <span></span>
@@ -51,10 +61,16 @@
                             </div>
                         </li>
 
+<<<<<<< HEAD
 
                         <li>@Html.ActionLink("Home", "Index")</li>
                         <li>@Html.ActionLink("About ", "About")</li>
                         <li>@Html.ActionLink("Feedback", "Feedback")</li>
+=======
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Feedback", "Feedback", "Home")</li>
+>>>>>>> origin
 
                         <li><button class="btn draw-border">LOG IN</button></li>
                         <li><button class="btn draw-border">SIGN UP</button></li>
@@ -65,6 +81,7 @@
 
         </header>
 
+
         <div class="hero">
 
             <h1><span>Welcome Administrator</span><br>Midori Book Store</h1>
@@ -74,6 +91,8 @@
             </div>
 
         </div>
+
+        
     </div>
 
     <div class="container body-content">
@@ -81,34 +100,67 @@
         <hr />
 
     </div>
-    <footer>
-        <div class="row">
-            <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#">Mido<span>ri </span></a></h3>
-                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
-                <p class="company-name">Midori © 2018 </p>
-            </div>
-            <div class="col-sm-6 col-md-4 footer-contacts">
-                <div>
-                    <span class="fa fa-map-marker footer-contacts-icon"> </span>
-                    <p><span class="new-line-span">SE1209</span> FPT University</p>
-                </div>
-                <div>
-                    <i class="fa fa-phone footer-contacts-icon"></i>
-                    <p class="footer-center-info email text-left"> +84 123456</p>
-                </div>
-                <div>
-                    <i class="fa fa-envelope footer-contacts-icon"></i>
-                    <p> <a href="#" target="_blank">support@fpt.edu.vn</a></p>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-md-4 footer-about">
-                <h4>About the website</h4>
-                <p> We create the website to get the good grade from our teacher- DAO TRONG DUY. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
-            </div>
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <h3>Midori<span>BookStore</span></h3>
+
+            <p class="footer-links">
+                <a href="/Home/Index">Home</a>
+                ·
+                <a href="#">Blog</a>
+                ·
+                <a href="#">Pricing</a>
+                ·
+                <a href="/Home/About">About</a>
+                ·
+                <a href="#">Faq</a>
+                ·
+                <a href="/Home/Contact">Contact</a>
+            </p>
+
+            <p class="footer-company-name">Midori Book Store &copy; 2019</p>
         </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>SE1209 FPT University</span> Hola, Vietnam</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+84 123456 1209</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@midori.com">support@midori.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>About this website</span>
+                We create the website to get the good grade from our teacher - LE PHUONG CHI.
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+
+            </div>
+
+        </div>
+
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

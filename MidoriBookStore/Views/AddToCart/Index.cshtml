@@ -9,60 +9,111 @@
 <h2>Index</h2>
 
 @{
-    var data = (List<CartItem>)ViewData["cart"];
+    var shop = new ShoppingCart((List<CartItem>)ViewData["cart"]);
+    var cart = (List<CartItem>)ViewData["cart"];
 }
 
-<table class="table">
-    <tr>
-        <th>
-            ID
-        </th>
-        <th>
-            Name
-        </th>
-        <th>
-            Quantity
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Total
-        </th>
+<main class="page shopping-cart-page">
+    <section class="clean-block clean-cart dark">
+        <div class="container">
+            <div class="block-heading" style=" margin-top: 70px;text-align: center">
 
-    </tr>
-
-    @foreach (var item in data)
-    {
-        <tr>
-            <td>
-                @item.BookId
-            </td>
-            <td>
-                @item.BookTitle
-            </td>
-            <td>
-                @item.BookPrice
-            </td>
-            <td>
-                @item.Quantity
-            </td>
-            <td>
-                @item.Total
-            </td>
-
-            <td>
-                @Html.ActionLink(
-    "Delete",
-    "Delete",
-    new { confirm = true, id = item.BookId },
-    new { onclick = "return confirm('Do you really want to delete this product from cart?')" })
+                <h2 class="text-info">Shopping Cart</h2>
+                <p>This page is used for showing the products chosen by customer and calculating the total price</p>
+                <br>
+            </div>
 
 
-            </td>
+            <div class="content">
 
-        </tr>
-    }
+                <div class="row no-gutters">
 
-</table>
+                    <div class="col-md-12 col-lg-8" style="background-color: whitesmoke   ">
+
+                        <div class="items">
+                            @foreach (var item in cart)
+                            {
+                                <div class="product" style="border-style: solid">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-md-3">
+                                            <div class="product-image"><img class="img-fluid d-block mx-auto image" src="@item.GetBookById().Url"></div>
+                                        </div>
+                                        <div class="col-md-5 product-info">
+                                            <a href="#" class="product-name">@item.BookTitle</a>
+                                            <div class="product-specs">
+                                                <div><span>Author&nbsp;</span><span class="value">@item.GetBookById().Author</span></div>
+                                                <div>
+                                                    <span>Status:&nbsp;</span><span class="value">
+                                                        @if (item.GetBookById().Status == null)
+                                                        {
+                                                            <text>Not Set</text>
+                                                        }
+                                                        else
+                                                        {
+                                                            if (item.GetBookById().Status == true)
+                                                            {
+                                                                <text>In Stock</text>
+                                                            }
+                                                            else
+                                                            {
+                                                                <text>Out Of Stock</text>
+                                                            }
+                                                        }
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-2 quantity"><label class="d-none d-md-block" for="quantity">Quantity</label><input type="number" value="@item.BookPrice" id="number" class="form-control quantity-input"></div>
+                                        <div class="col-6 col-md-2 price"><span>@item.BookPrice</span></div>
+
+                                        <div class="col-6 col-md-2 price offset-6">
+                                            <c:url var="delete" value="/cart/delete">
+                                                <c:param name="bookID" value="${order.bookID}" />
+                                            </c:url>
+                                            <button class="btn btn-primary btn-block btn-lg" type="button" onclick="window.location.href = '${delete}'">Delete</button>
+                                            @Html.ActionLink(
+                                                "Delete",
+                                                "Delete",
+                                                new { confirm = true, id = item.BookId },
+                                                new { onclick = "return confirm('Do you really want to delete this product from cart?')"}
+                                                )
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
+                        <div class="summary" style="background-color: #e2dad7; text-align: center ">
+                            <table border="0" width="100%">
+                                <h1>SUMMARY</h1>
+                                <tr>
+                                    <th><h3>Book total</h3></th>
+                                    <th><h3>@shop.GetTotalBook()</h3></th>
+                                </tr>
+                                <tr>
+                                    <th><h3>Discount</h3></th>
+                                    <th><h3>$0</h3></th>
+                                </tr>
+                                <tr>
+                                    <th><h3>Total</h3></th>
+                                    <th><h3>$@shop.GetTotalPrice()</h3></th>
+                                </tr>
+                            </table>
+                            <button class="btn btn-primary btn-block btn-lg" type="button" onclick="window.location.href = '/ProjectTest/view/check_out.jsp'">Checkout</button>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
 

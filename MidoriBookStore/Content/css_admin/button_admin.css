@@ -1,0 +1,243 @@
+﻿.draw-border {
+    box-shadow: inset 0 0 0 4px #58afd1;
+    color: #58afd1;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+}
+
+    .draw-border::before, .draw-border::after {
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .draw-border::before {
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+    }
+
+    .draw-border::after {
+        border-top-width: 4px;
+        border-right-width: 4px;
+    }
+
+    .draw-border:hover {
+        color: #ff6d1e;
+    }
+
+        .draw-border:hover::before, .draw-border:hover::after {
+            border-color: #ff6d1e;
+            transition: border-color 0s, width 0.25s, height 0.25s;
+            width: 100%;
+            height: 100%;
+        }
+
+        .draw-border:hover::before {
+            transition-delay: 0s, 0s, 0.25s;
+        }
+
+        .draw-border:hover::after {
+            transition-delay: 0s, 0.25s, 0s;
+        }
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem 'Roboto Slab', sans-serif;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+}
+
+    .btn:focus {
+        outline: 2px dotted #55d7dc;
+    }
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
+
+
+
+.centerer *,
+.centerer *:before,
+.centerer *:after {
+    box-sizing: border-box;
+    transition: 0.5s ease-in-out;
+}
+
+.centerer i, html em,
+.centerer b, html strong,
+.centerer span {
+    transition: none;
+}
+
+.centerer:before,
+.centerer:after {
+    z-index: -1;
+}
+
+.centerer h1, h4 {
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+    margin: 0;
+    line-height: 1;
+}
+
+.centerer a {
+    text-decoration: none;
+    line-height: 80px;
+    color: black;
+}
+
+.centerer {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-family: 'Open Sans', Helvetica, arial, sans-serif;
+    text-align: center;
+    float: left;
+}
+
+@media (min-width: 600px) {
+    .wrap {
+        width: 50%;
+        float: left;
+    }
+}
+
+
+.btn-cre {
+    color: #b43083;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 80px;
+    max-width: 250px;
+    margin: 1rem auto;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+}
+
+    .btn-cre:before, .btn-cre:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .btn-cre:before {
+        right: -50px;
+        border-right: 50px solid transparent;
+        border-bottom: 80px solid #640741;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    .btn-cre:after {
+        left: -50px;
+        border-left: 50px solid transparent;
+        border-top: 80px solid #640741;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+    .btn-cre:hover {
+        color: #e9c2db;
+    }
+
+        .btn-cre:hover:before {
+            -webkit-transform: translateX(-49%);
+            transform: translateX(-49%);
+        }
+
+        .btn-cre:hover:after {
+            -webkit-transform: translateX(49%);
+            transform: translateX(49%);
+        }
+
+    
+@-webkit-keyframes criss-cross-left {
+    0% {
+        left: -20px;
+    }
+
+    50% {
+        left: 50%;
+        width: 20px;
+        height: 20px;
+    }
+
+    100% {
+        left: 50%;
+        width: 375px;
+        height: 375px;
+    }
+}
+
+@keyframes criss-cross-left {
+    0% {
+        left: -20px;
+    }
+
+    50% {
+        left: 50%;
+        width: 20px;
+        height: 20px;
+    }
+
+    100% {
+        left: 50%;
+        width: 375px;
+        height: 375px;
+    }
+}
+
+@-webkit-keyframes criss-cross-right {
+    0% {
+        right: -20px;
+    }
+
+    50% {
+        right: 50%;
+        width: 20px;
+        height: 20px;
+    }
+
+    100% {
+        right: 50%;
+        width: 375px;
+        height: 375px;
+    }
+}
+
+@keyframes criss-cross-right {
+    0% {
+        right: -20px;
+    }
+
+    50% {
+        right: 50%;
+        width: 20px;
+        height: 20px;
+    }
+
+    100% {
+        right: 50%;
+        width: 375px;
+        height: 375px;
+    }
+}
+
+

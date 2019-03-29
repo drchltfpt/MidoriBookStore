@@ -15,7 +15,7 @@ namespace MidoriBookStore.Models.AddToCart
             CartItem c = null;
             foreach (CartItem item in items)
             {
-                if(item.BookId == id)
+                if (item.BookId == id)
                 {
                     c = item;
                     return c;
@@ -91,7 +91,7 @@ namespace MidoriBookStore.Models.AddToCart
             return false;
         }
 
-        public Double GetTotalCart()
+        public Double GetTotalPrice()
         {
             double total = 0;
             foreach (CartItem ci in items)
@@ -100,6 +100,26 @@ namespace MidoriBookStore.Models.AddToCart
             }
             return total;
         }
+
+        public void UpdateQuantityCartItem(CartItem ci, int quantity)
+        {
+            foreach (CartItem c in items)
+            {
+                if (c.BookId == ci.BookId)
+                {
+                    c.Quantity = quantity;
+                    return;
+                }
+            }
+        }
+
+        public int GetTotalBook()
+        {
+            int t = 0;
+            foreach (CartItem c in items) t += c.Quantity;
+            return t;
+        }
+
 
     }
 }

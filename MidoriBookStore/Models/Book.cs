@@ -20,9 +20,9 @@ namespace MidoriBookStore.Models
             this.OrderLines = new HashSet<OrderLine>();
         }
     
-        public string BookID { get; set; }
-        public string PublisherID { get; set; }
-        public string AuthorID { get; set; }
+        public int BookID { get; set; }
+        public Nullable<int> PublisherID { get; set; }
+        public Nullable<int> AuthorID { get; set; }
         public string BookTitle { get; set; }
         public string Notes { get; set; }
         public decimal BookPrice { get; set; }
@@ -34,5 +34,7 @@ namespace MidoriBookStore.Models
         public virtual Publisher Publisher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderLine> OrderLines { get; set; }
+
+       
     }
 }

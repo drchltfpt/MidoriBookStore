@@ -15,7 +15,7 @@ namespace MidoriBookStore.Models
     public partial class OrderLine
     {
         public int OrderID { get; set; }
-        public string BookID { get; set; }
+        public int BookID { get; set; }
         public decimal BookPrice { get; set; }
         public int Quantity { get; set; }
     

@@ -23,11 +23,6 @@ namespace MidoriBookStore.Controllers
             return View();
         }
 
-        // GET: AddToCart/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: AddToCart/Create
         public ActionResult Create()

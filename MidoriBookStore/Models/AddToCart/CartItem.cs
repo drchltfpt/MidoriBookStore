@@ -7,6 +7,9 @@ namespace MidoriBookStore.Models.AddToCart
 {
     public class CartItem
     {
+
+        private BookStoreDBEntities1 db = new BookStoreDBEntities1();
+
         public int BookId { get; set; }
 
         public string BookTitle { get; set; }
@@ -14,6 +17,11 @@ namespace MidoriBookStore.Models.AddToCart
         public int Quantity { get; set; }
 
         public double BookPrice { get; set; }
+
+        public Book GetBookById()
+        {
+            return db.Books.Find(BookId);
+        }
 
         public double Total
         {

@@ -1,0 +1,86 @@
+﻿/* IOS Bug dont Use this code */
+
+.video_intro  .hidden {
+    display: none !important;
+}
+
+.video_intro  .wrapper {
+    max-width: 1000px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+/* -------------------------------------------------------------------------
+   begin Video Youtube
+ * ------------------------------------------------------------------------- */
+.video_intro .video-youtube {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+
+    .video_intro .video-youtube.video-youtube_overlay:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 5;
+    }
+
+    .video_intro .video-youtube .video-youtube__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+        .video_intro .video-youtube .video-youtube__content.video-youtube__content_hide-origin-play-btn {
+            width: 10000%;
+            height: 10000%;
+            -webkit-transform: scale(0.01);
+            transform: scale(0.01);
+            -webkit-transform-origin: top left;
+            transform-origin: top left;
+        }
+
+            .video_intro .video-youtube .video-youtube__content.video-youtube__content_hide-origin-play-btn::-moz-selection {
+                background-color: transparent;
+            }
+
+            .video-youtube .video-youtube__content.video-youtube__content_hide-origin-play-btn::selection {
+                background-color: transparent;
+            }
+
+.video_intro .video-youtube .video-youtube__new-play-btn {
+    max-width: 153px;
+    max-height: 153px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    background-image: url(https://erweb.ru/wp-content/uploads/2017/09/youtube-play.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------
+   end Video Youtube
+ * ------------------------------------------------------------------------- */

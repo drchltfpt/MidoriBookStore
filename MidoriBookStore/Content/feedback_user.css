@@ -1,0 +1,134 @@
+﻿
+
+.feedback_user {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.feedback_user body {
+    font-family: 'Economica', 'Arial', sans-serif;
+    font-size: 18px;
+    background: deepskyblue;
+}
+
+    .feedback_user .container {
+        position: relative;
+        width: 80%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .feedback_user form {
+        position: relative;
+        width: 100%;
+        margin: 50px auto;
+        padding: 50px;
+        background: white;
+        text-align: center;
+    }
+
+    .feedback_user input {
+        display: inline-block;
+        width: 100%;
+        margin: 20px 0;
+        padding: 10px;
+        border: 2px dashed lightblue;
+        outline: none;
+        font-size: 20px;
+        font-family: 'Economica', 'Arial', sans-serif;
+        font-weight: 400;
+        transition: all 0.2s ease;
+    }
+
+        .feedback_user input:focus {
+            border-color: deepskyblue;
+        }
+    .feedback_user textarea {
+        display: inline-block;
+        width: 100%;
+        margin: 20px 0;
+        padding: 10px;
+        border: 2px dashed lightblue;
+        outline: none;
+        font-size: 20px;
+        font-family: 'Economica', 'Arial', sans-serif;
+        font-weight: 400;
+        transition: all 0.2s ease;
+    }
+        .feedback_user textarea:focus {
+            border-color: deepskyblue;
+        }
+        
+
+    .feedback_user button {
+        position: absolute;
+        left: calc(50% - 150px / 2);
+        bottom: calc(- 50px / 2);
+        width: 150px;
+        height: 50px;
+        padding: 10px 15px;
+        margin-top: 20px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: white;
+        font-family: 'Economica', 'Arial', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        background: mediumblue;
+        transition: all 0.2s ease;
+    }
+
+        .feedback_user button:hover {
+            background: midnightblue;
+        }
+
+        .feedback_user button.valid,
+        .feedback_user button.valid:hover {
+            background: mediumseagreen;
+        }
+
+    .feedback_user svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+
+        .feedback_user svg path {
+            stroke-width: 10px;
+            stroke: mediumseagreen;
+            fill: none;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+            .feedback_user svg path.hidden {
+                opacity: 0;
+            }
+
+            .feedback_user svg path.animate {
+                animation: drawBorder 1s linear;
+            }
+
+@keyframes drawBorder {
+    .feedback_user from {
+        stroke-dasharray: 4000;
+        stroke-dashoffset: 4000;
+    }
+
+    .feedback_user to {
+        stroke-dasharray: 4000;
+        stroke-dashoffset: 0;
+    }
+}
+
+.feedback_user h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+}

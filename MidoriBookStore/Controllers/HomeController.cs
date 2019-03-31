@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MidoriBookStore.Models;
+using PagedList;
 
 namespace MidoriBookStore.Controllers
 {
@@ -15,10 +16,25 @@ namespace MidoriBookStore.Controllers
         private BookStoreDBEntities1 db = new BookStoreDBEntities1();
 
         // GET: Home
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var books = db.Books.Include(b => b.Author).Include(b => b.Publisher);
+        //    return View(books.ToList());
+        //}
+
+        public ActionResult Index(int page = 0)
         {
-            var books = db.Books.Include(b => b.Author).Include(b => b.Publisher);
-            return View(books.ToList());
+            const int PageSize = 6; // you can always do something more elegant to set this
+
+            var count = db.Books.Count();
+
+            var data = this.db.Books.OrderBy(Book =>Book.BookID).Skip(page * PageSize).Take(PageSize).ToList();
+
+            this.ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+
+            this.ViewBag.Page = page;
+
+            return this.View(data);
         }
 
         // GET: Home/Details/5
@@ -133,14 +149,27 @@ namespace MidoriBookStore.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Search(string searchString)
+        public ActionResult Search(string bookGenre, string searchString)
         {
+            var GenreLst = new List<string>();
+
+            var GenreQry = from d in db.Books
+                           orderby d.BookType
+                           select d.BookType;
+
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.bookGenre = new SelectList(GenreLst);
+
             var books = from m in db.Books
                          select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 books = books.Where(s => s.BookTitle.Contains(searchString));
+            }
+            if (!string.IsNullOrEmpty(bookGenre))
+            {
+                books = books.Where(x => x.BookType == bookGenre);
             }
 
             return View(books);
@@ -149,6 +178,30 @@ namespace MidoriBookStore.Controllers
         public ActionResult About()
         {
             return View();
+        }
+
+        // GET: Home/Feedback
+        public ActionResult Feedback()
+        {
+            return View();
+        }
+
+        // POST: Home/Feedback
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Feedback([Bind(Include = "ResponseID,UserID,Username,Title,Email,Contents,IsActive,Reply")] UserResponse userResponse)
+        {
+            if (ModelState.IsValid)
+            {
+                db.UserResponses.Add(userResponse);
+                db.SaveChanges();
+                return RedirectToAction("Feedback");
+            }
+
+            ViewBag.UserID = new SelectList(db.Users, "UserID", "Username", userResponse.UserID);
+            return View(userResponse);
         }
 
     }

@@ -28,7 +28,15 @@
                                 <div class="product-grid__extend-wrapper">
                                     <div class="product-grid__extend">
                                         <p class="product-grid__description">@Html.DisplayFor(modelItem => item.Notes)</p>
-                                        <span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i> Add to cart</span>
+                                        @if (Session["UserName"] != null)
+                                        {
+                                            <span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i>Add to cart</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i>@Html.ActionLink("Add to cart", "Index", "Login")</span>
+
+                                        }
                                         <span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i> @Html.ActionLink("View more", "Details", new { id = item.BookID })</span>
                                     </div>
                                 </div>
@@ -37,8 +45,21 @@
                         <!-- end Single product -->
                     }
                 </div>
-
             </div>
+            @if (ViewBag.Page > 0)
+            {
+                <a href="@Url.Action("Index", new { page = ViewBag.Page - 1 })"
+                   class="btn btn-default">
+                    &laquo; Prev
+                </a>
+            }
+            @if (ViewBag.Page < ViewBag.MaxPage)
+            {
+                <a href="@Url.Action("Index", new { page = ViewBag.Page + 1 })"
+                   class="btn btn-default">
+                    Next &raquo;
+                </a>
+            }
         </div>
     </div>
 </div>

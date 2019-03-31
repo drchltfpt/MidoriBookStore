@@ -1,0 +1,32 @@
+﻿@model MidoriBookStore.Models.UserResponse
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="feedback_user">
+
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <form action="/Home/Feedback">
+                <h3>Your details</h3>
+                <svg width="100%" height="100%">
+                    <path class="hidden" d="M0 0 H200 V200 H0 Z"></path>
+                </svg>
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username)
+
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+
+                @Html.TextAreaFor(model => model.Contents)
+                @Html.ValidationMessageFor(model => model.Contents)
+                <br />
+                <button type="submit">Send!</button>
+            </form>
+        }
+    </div>
+</div>

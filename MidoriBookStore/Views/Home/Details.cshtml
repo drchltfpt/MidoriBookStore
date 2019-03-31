@@ -6,48 +6,52 @@
     var book = (MidoriBookStore.Models.Book)ViewData["book"];
 
 }
+
 <link href="@Url.Content("~/Content/detail_book.css")" rel="stylesheet" type="text/css" />
 
-<div class="component">
-    <ul class="align">
-        <!-- Book 1 -->
-        <li>
-            <figure class="book">
-                <!-- Front -->
-                <ul class="hardcover_front">
-                    <li>
-                        <img src="@book.Url" alt="" width="100%" height="100%">
-                        <span class="ribbon bestseller">Nº1</span>
-                    </li>
-                    <li></li>
-                </ul>
-                <!-- Pages -->
-                <ul class="page">
-                    <li></li>
-                    <li>
-                        @Html.ActionLink("Add to cart", "Create", "AddToCart",
-                            new { id = @book.BookID, previousUrl = ViewBag.Title },
-                            new { @class = "btnD"})
-                    </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                <!-- Back -->
-                <ul class="hardcover_back">
-                    <li></li>
-                    <li></li>
-                </ul>
-                <ul class="book_spine">
-                    <li></li>
-                    <li></li>
-                </ul>
-                <figcaption>
-                    <h1>@book.BookTitle</h1>
-                    <span>@book.Author.AuthorName</span>
-                    <p>@book.Notes</p>
-                </figcaption>
-            </figure>
-        </li>
-    </ul>
+<div class="book_detail">
+    <div class="component">
+        <ul class="align">
+            <!-- Book 1 -->
+            <li>
+                <figure class="book">
+                    <!-- Front -->
+                    <ul class="hardcover_front">
+                        <li>
+                            <img src="@book.Url" alt="" width="100%" height="100%">
+                            <span class="ribbon bestseller">Nº1</span>
+                        </li>
+                        <li></li>
+                    </ul>
+                    <!-- Pages -->
+                    <ul class="page">
+                        <li></li>
+                        <li>
+                            @Html.ActionLink("Add to cart", "Create", "AddToCart",
+                                new { id = @book.BookID, previousUrl = ViewBag.Title },
+                                new { @class = "btnD"})
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <!-- Back -->
+                    <ul class="hardcover_back">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="book_spine">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <figcaption>
+                        <h1>@book.BookTitle</h1>
+                        <span>@book.Author.AuthorName</span>
+                        <p>@book.Notes</p>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+    </div>
 </div>
+

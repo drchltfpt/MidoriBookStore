@@ -1,0 +1,68 @@
+﻿@using MidoriBookStore.Models.AddToCart
+<link href="@Url.Content("~/Content/cart/check_out.css")" rel="stylesheet" type="text/css" />
+
+
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var shop = new ShoppingCart((List<CartItem>)ViewData["CartItem"]);
+    var cart = (List<CartItem>)ViewData["CartItem"];
+}
+
+
+<div class="content-wrapper-checkout">
+    <div class="checkout-detail">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in cart)
+                {
+
+                    <tr>
+                        <td>@item.GetBookById().BookTitle</td>
+                        <td>@item.Quantity</td>
+                        <td>$@item.Total</td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="2">Total</td>
+                    <td>$@shop.GetTotalPrice()</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="payment-detail">
+        <div class="payment-head">
+            <label for="logo">Checkout</label>
+
+        </div>
+        @using (Html.BeginForm())
+        {
+
+            <div class="input-wrap">
+                <label for="">Your Phone Number</label>
+                <input type="number" name="phone" id="phone" maxlength="12" />
+            </div>
+            <div class="input-wrap">
+                <label for="">Your Address</label>
+                <input type="text" name="address" id="address" />
+            </div>
+
+            <div class="submit-wrap">
+                <input type="submit" value="Purchase" />
+            </div>
+        }
+
+    </div>
+</div>
+

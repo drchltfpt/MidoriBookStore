@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Success";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Success</title>
+    <link href="@Url.Content("~/Content/message.css")" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div id="container">
+        <div id="success-box">
+            <div class="dot"></div>
+            <div class="dot two"></div>
+            <div class="face">
+                <div class="eye"></div>
+                <div class="eye right"></div>
+                <div class="mouth happy"></div>
+            </div>
+            <div class="shadow scale"></div>
+            <div class="message"><h1 class="alert">Success!</h1><p>Oh yeah, everything is working.</p></div>
+            <button class="button-box" onclick="location.href='@Url.Action("Index", "Home")'"><h1 class="green">Go Home</h1></button>
+        </div>
+    </div>
+</body>
+</html>
+

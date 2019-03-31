@@ -42,14 +42,16 @@ namespace MidoriBookStore.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index", db);
             }
             Book book = db.Books.Find(id);
             if (book == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            System.Diagnostics.Debug.WriteLine(book.BookID);
+            ViewData["book"] = book;
+            return View();
         }
 
         // GET: Home/Create

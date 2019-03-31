@@ -88,6 +88,22 @@
                             <li><button class="btn draw-border">@Html.ActionLink("LOG IN", "Index", "Login")</button></li>
                         }
                         <li><button class="btn draw-border">@Html.ActionLink("SIGN UP", "Index", "Login")</button></li>
+                        <li>
+                            <a href="/AddToCart/Index" class="cart-icon" id="cart">
+                                <i class="fa fa-shopping-cart"></i>
+
+                                @if (Session["CountCart"] != null)
+                                {
+                                    <span style="font-size: 10px; color: brown">
+                                        (@Session["CountCart"].ToString())
+                                    </span>
+                                }
+
+                            </a>
+                        </li>
+
+                        <li><button class="btn draw-border">LOG IN</button></li>
+                        <li><button class="btn draw-border">SIGN UP</button></li>
                     </ul>
                 </nav>
 

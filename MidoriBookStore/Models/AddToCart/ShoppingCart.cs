@@ -30,7 +30,7 @@ namespace MidoriBookStore.Models.AddToCart
 
         public void AddItem(CartItem c)
         {
-            System.Diagnostics.Debug.WriteLine("first");
+            
             if (items.Count == 0 || !SearchCartItem(c))
             {
                 System.Diagnostics.Debug.WriteLine("Added");
@@ -102,11 +102,11 @@ namespace MidoriBookStore.Models.AddToCart
 
         public void UpdateQuantityCartItem(CartItem ci, int quantity)
         {
-            foreach (CartItem c in items)
+            for (int i = 0; i < items.Count; i++)
             {
-                if (c.BookId == ci.BookId)
+                if (ci.Equals(items[i]))
                 {
-                    c.Quantity = quantity;
+                    ci.Quantity = quantity;
                     return;
                 }
             }

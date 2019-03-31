@@ -143,6 +143,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddToCart\AddOrderModel.cs" />
     <Compile Include="Models\AddToCart\CartItem.cs" />
     <Compile Include="Models\AddToCart\ShoppingCart.cs" />
     <Compile Include="Models\Author.cs">
@@ -195,7 +196,9 @@
     <Content Include="Content\cart\check_out.css" />
     <Content Include="Content\css_admin\button_admin.css" />
     <Content Include="Content\css_admin\header_admin.css" />
+    <Content Include="Content\detail_book.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\message.css" />
     <Content Include="Content\searchbar.css" />
     <Content Include="Content\css_admin\share_admin.css" />
     <Content Include="Content\css_admin\slidebar_admin.css" />
@@ -246,7 +249,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Authors\Create.cshtml" />
@@ -277,6 +280,7 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\AddToCart\Index.cshtml" />
     <Content Include="Views\AddToCart\CheckOut.cshtml" />
+    <Content Include="Views\Shared\_Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

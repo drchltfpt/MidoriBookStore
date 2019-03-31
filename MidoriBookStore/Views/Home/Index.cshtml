@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+}
 
 <div class="product">
     <div class="wrapper">
@@ -28,7 +29,12 @@
                                 <div class="product-grid__extend-wrapper">
                                     <div class="product-grid__extend">
                                         <p class="product-grid__description">@Html.DisplayFor(modelItem => item.Notes)</p>
-                                        <span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i> Add to cart</span>
+                                        <span class="product-grid__btn product-grid__add-to-cart">
+                                            <i class="fa fa-cart-arrow-down"></i>
+                                            @Html.ActionLink("Add to cart", "Create", "AddToCart",
+                                                new { id = item.BookID, previousUrl = ViewBag.Title },
+                                                null)
+                                        </span>
                                         <span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i> @Html.ActionLink("View more", "Details", new { id = item.BookID })</span>
                                     </div>
                                 </div>

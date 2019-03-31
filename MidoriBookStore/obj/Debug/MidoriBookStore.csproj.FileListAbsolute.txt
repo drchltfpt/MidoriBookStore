@@ -77,8 +77,8 @@ C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\bin\Antlr3.Runtime.
 C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\obj\Debug\MidoriBookStore.csprojAssemblyReference.cache
 C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\obj\Debug\MidoriBookStore.csproj.CoreCompileInputs.cache
 C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\obj\Debug\MidoriBookStore.csproj.CopyComplete
 C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\obj\Debug\MidoriBookStore.dll
 C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\obj\Debug\MidoriBookStore.pdb
+C:\Users\doduy\Desktop\Clone\MidoriBookStore\MidoriBookStore\obj\Debug\MidoriBookStore.csprojAssemblyReference.cache
